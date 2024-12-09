@@ -1,8 +1,4 @@
-package web;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,7 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
 import utils.PropertyReader;
 
-import java.io.IOException;
 import java.time.Duration;
 
 public class BaseTest {
@@ -19,10 +14,10 @@ public class BaseTest {
     WebDriver driver;
 
     protected static PropertyReader propertyReader;
-    private static String propertiesPath = "/config.properties";
+    private static final String propertiesPath = "/config.properties";
 
     @BeforeMethod(alwaysRun = true, description = "Browser settings")
-    public void setup() throws IOException {
+    public void setup() {
         driver = new ChromeDriver();
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
