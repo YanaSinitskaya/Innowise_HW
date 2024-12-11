@@ -37,6 +37,5 @@ build/
 ### Mac OS ###
 .DS_Store
 
-# Игнорируем файл конфигурации с паролем
-config.properties
-web.properties
+# Ignoring properties file
+.config.properties
