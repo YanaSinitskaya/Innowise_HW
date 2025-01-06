@@ -23,4 +23,4 @@ jobs:
           browser: chrome
           version: latest
       - name: Run Automated tests
-        run: mvn clean test
+        run: mvn -X test
