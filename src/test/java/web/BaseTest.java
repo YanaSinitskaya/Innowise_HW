@@ -16,7 +16,6 @@ public class BaseTest {
     WebDriver driver;
     BasePage basePage;
     NewItemsPage newItemsPage;
-    PropertyReader propertyReader;
 
     @BeforeMethod(alwaysRun = true, description = "Browser settings")
     public void setup() {
@@ -31,7 +30,8 @@ public class BaseTest {
         basePage = new BasePage(driver);
         newItemsPage = new NewItemsPage(driver);
 
-        propertyReader = new PropertyReader();
+        PropertyReader.getProperty("login.email");
+        PropertyReader.getProperty("login.password");
     }
 
     @AfterMethod(alwaysRun = true, description = "Close browser")
