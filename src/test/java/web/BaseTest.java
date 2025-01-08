@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
 import pages.NewItemsPage;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -15,6 +16,7 @@ public class BaseTest {
     WebDriver driver;
     BasePage basePage;
     NewItemsPage newItemsPage;
+    PropertyReader propertyReader;
 
     @BeforeMethod(alwaysRun = true, description = "Browser settings")
     public void setup() {
@@ -29,6 +31,7 @@ public class BaseTest {
         basePage = new BasePage(driver);
         newItemsPage = new NewItemsPage(driver);
 
+        propertyReader = new PropertyReader();
     }
 
     @AfterMethod(alwaysRun = true, description = "Close browser")
