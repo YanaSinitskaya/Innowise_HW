@@ -8,6 +8,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
 import pages.NewItemsPage;
+import utils.PropertyReader;
 
 import java.time.Duration;
 
@@ -29,6 +30,8 @@ public class BaseTest {
         basePage = new BasePage(driver);
         newItemsPage = new NewItemsPage(driver);
 
+        PropertyReader.getProperty("login.email");
+        PropertyReader.getProperty("login.password");
     }
 
     @AfterMethod(alwaysRun = true, description = "Close browser")

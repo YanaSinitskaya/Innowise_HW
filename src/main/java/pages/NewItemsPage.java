@@ -54,6 +54,7 @@ public class NewItemsPage extends BasePage {
         driver.findElement(NEW_MAN_CLOTHES).click();
     }
 
+    // перенести в basePage
     @Step("Check if we are on current page")
     public String checkIfCurrentPageIsOpen() {
         log.info("Check if we are on current page");
