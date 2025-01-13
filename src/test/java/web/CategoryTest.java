@@ -2,11 +2,13 @@ package web;
 
 import io.qameta.allure.Description;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import static pages.constants.URLConstants.MAN_NEW_CLOTHES;
 import static pages.constants.URLConstants.WOMAN_NEW_CLOTHES;
 
+@Listeners(TestListener.class)
 public class CategoryTest extends BaseTest {
 
     @Description("Test if checkbox-filter for New clothes is checked")
