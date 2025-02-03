@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
@@ -18,7 +19,7 @@ public class BaseTest {
     NewItemsPage newItemsPage;
 
     @BeforeMethod(alwaysRun = true, description = "Browser settings")
-    public void setup() {
+    public void setup(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
@@ -32,6 +33,7 @@ public class BaseTest {
 
         PropertyReader.getProperty("login.email");
         PropertyReader.getProperty("login.password");
+        context.setAttribute("driver", driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Close browser")
